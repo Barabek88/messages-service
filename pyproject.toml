@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Messages microservice with Citus sharding"
 requires-python = ">=3.11"
 dependencies = [
+    "aiohttp>=3.11.11",
     "alembic>=1.16.5",
     "asyncpg>=0.30.0",
     "fastapi>=0.116.1",
@@ -12,5 +13,6 @@ dependencies = [
     "pyjwt>=2.10.1",
     "python-dotenv>=1.1.1",
     "sqlalchemy>=2.0.43",
+    "tarantool>=1.1.0",
     "uvicorn>=0.35.0",
 ]

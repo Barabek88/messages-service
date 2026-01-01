@@ -68,10 +68,26 @@ services:
     networks:
       - messages_network
 
+  tarantool:
+    image: tarantool/tarantool:latest
+    container_name: tarantool
+    ports:
+      - "3301:3301"
+    environment:
+      TARANTOOL_USER_NAME: ${TARANTOOL_USER:-admin}
+      TARANTOOL_USER_PASSWORD: ${TARANTOOL_PASSWORD:-admin}
+    volumes:
+      - ./tarantool/init.lua:/opt/tarantool/init.lua
+      - ../.db_data/tarantool_data:/var/lib/tarantool
+    command: tarantool /opt/tarantool/init.lua
+    networks:
+      - messages_network
+
 volumes:
   citus_coordinator_data:
   citus_worker1_data:
   citus_worker2_data:
+  tarantool_data:
 
 
 networks:

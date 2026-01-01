@@ -22,6 +22,12 @@ class AppSettings(BaseSettings):
     def DATABASE_URL(self) -> str:
         return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
 
+    # Tarantool
+    TARANTOOL_HOST: str = "tarantool"
+    TARANTOOL_PORT: int = 3301
+    TARANTOOL_USER: str = "admin"
+    TARANTOOL_PASSWORD: str = "admin"
+
     # JWT
     JWT_SECRET_KEY: str
     JWT_ALGORITHM: str = "HS256"
