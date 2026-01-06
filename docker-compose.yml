@@ -92,4 +92,5 @@ volumes:
 
 networks:
   messages_network:
-    driver: bridge
+    name: service_networks
+    external: true

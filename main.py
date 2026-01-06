@@ -16,6 +16,7 @@ from app.core.exception_handlers import (
     generic_exception_handler,
     validation_exception_handler,
 )
+from app.middleware import RequestIDMiddleware
 
 
 @asynccontextmanager
@@ -30,6 +31,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Messages Service", version="1.0.0", lifespan=lifespan)
+
+# Middleware
+app.add_middleware(RequestIDMiddleware)
 
 # Include routers
 app.include_router(message_router, prefix="/api/v1")
